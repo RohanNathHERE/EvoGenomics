@@ -1,2 +1,2 @@
-# EvoGenomics
-Welcome to EvoGenomics Explorer, a portfolio dedicated to my work in comparative and evolutionary genomics through the lens of computational biology. Here, you'll find insights into my research on genomic diversity, evolutionary patterns, and the computational methods I employ to unravel the complexities of life's molecular blueprint.
+# EvoGenomics by Rohan Nath
+Welcome to EvoGenomics, the digital portfolio of Rohan Nath, dedicated to the exploration of comparative and evolutionary genomics through computational biology. This site showcases my research, projects, and contributions to understanding the genetic foundations of life's diversity. Dive into my work as I uncover the evolutionary mechanisms that shape genomes across species.
