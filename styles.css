@@ -48,7 +48,6 @@ header {
     overflow: hidden;
 }
 
-/* Pseudo-element for the underline effect */
 .nav-menu a::before {
     content: "";
     position: absolute;
@@ -61,7 +60,6 @@ header {
     transform: translateX(-50%);
 }
 
-/* Hover effect for the underline */
 .nav-menu a:hover::before {
     width: 100%;
     left: 0;
@@ -115,10 +113,13 @@ main {
 /* Blog Container */
 .blog-container {
     display: flex;
+    flex-wrap: wrap;
     max-width: 1200px;
     width: 100%;
     margin: auto;
     padding: 20px;
+    gap: 10px;
+    justify-content: space-between;
 }
 
 /* Blog Header */
@@ -152,12 +153,11 @@ main {
 .blog-posts {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 10px;
 }
 
-/* Column for Blog Posts */
 .column {
-    flex: 1 1 calc(50% - 20px);
+    flex: 1 1 calc(25% - 10px); /* 25% width minus the gap */
     box-sizing: border-box;
 }
 
@@ -208,6 +208,7 @@ main {
     font-size: 14px;
     color: #999;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .post-summary {
@@ -227,19 +228,9 @@ main {
     text-decoration: underline;
 }
 
-
-/* Main Section */
-main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    flex: 1; /* Allow main content to expand and push footer down */
-}
-
 /* Blog Post Page Styling */
 .blog-post-page {
-    max-width: 800px;
+    max-width: 1200px;
     margin: auto;
     padding: 20px;
     background-color: #fff;
@@ -253,7 +244,7 @@ main {
 
 .post-image img {
     width: 100%;
-    height: auto;
+    height: 100%;
     border-radius: 8px;
 }
 
@@ -290,78 +281,14 @@ main {
     text-align: left;
 }
 
-.post-body ul li {
-    margin-bottom: 10px;
+.post-body ul {
+    padding-left: 20px; /* Adds padding to the left of the list for indentation */
+    margin: 10px 0;
+    text-align: left; /* Aligns the list items to the left */
 }
 
-/* Likes and Comments Section */
-.post-interactions {
-    margin-top: 20px;
-}
-
-.like-button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.like-button:hover {
-    background-color: #0056b3;
-}
-
-.likes-count {
-    font-size: 16px;
-    margin-top: 10px;
-}
-
-.comments {
-    margin-top: 20px;
-}
-
-.comment-form textarea {
-    width: 100%;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    margin-bottom: 10px;
-}
-
-.comment-form button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.comment-form button:hover {
-    background-color: #0056b3;
-}
-
-.comment-list {
-    margin-top: 20px;
-}
-
-.comment {
-    border-bottom: 1px solid #ddd;
-    padding-bottom: 10px;
-    margin-bottom: 10px;
-}
-
-
-/* Main Section */
-main {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 20px;
-    flex: 1; /* Allow main content to expand and push footer down */
+.post-body li {
+    margin-bottom: 10px; /* Adds space between list items */
 }
 
 /* About Section */
@@ -439,6 +366,14 @@ main {
     text-decoration: underline;
 }
 
+.link-text {
+    margin-top: 8px;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .about-links a {
     display: block;
     color: #007BFF;
@@ -514,6 +449,7 @@ footer {
 
     .post-date {
         font-size: 12px;
+        text-align: center;
     }
 
     .post-summary {
@@ -532,3 +468,346 @@ footer {
         font-size: 12px;
     }
 }
+
+/* Publications Page Styles */
+/* Publications Container */
+.publications-container {
+    max-width: 1200px; /* Increased max-width for the publications container */
+    margin: auto;
+    padding: 20px;
+    background-color: #fff; /* Background color for the publications container */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow for a subtle 3D effect */
+}
+
+/* Year Section */
+.year-section {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #f9f9f9; /* Light background for each year section */
+    border-radius: 8px; /* Rounded corners for each section */
+}
+
+/* Year Heading */
+.year-heading {
+    font-size: 36px; /* Larger font size for the year */
+    font-weight: bold;
+    margin-bottom: 10px; /* Space below the heading */
+    border-bottom: 2px solid #ddd; /* Border for visual separation */
+    padding-bottom: 5px;
+    color: #333;
+}
+
+/* Publication Item */
+.publication-item {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Increased gap for better spacing */
+    border-bottom: 1px solid #ddd; /* Divider line */
+    padding: 15px 0; /* Increased padding for better spacing */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Smooth transitions */
+}
+
+/* Publication Name */
+.publication-name {
+    font-size: 16px; /* Font size for publication title */
+    color: #333;
+    line-height: 1.4; /* Adjust line height for better readability */
+    text-align: left; /* Align the name to the left */
+}
+
+/* Publication Name Heading */
+.publication-name h3 {
+    margin: 0; /* Remove default margin */
+}
+
+/* Publication Image */
+.publication-image img {
+    max-width: 150px; /* Increased width for a larger image */
+    height: auto;
+    border-radius: 8px;
+    background-color: #fff; /* White background for the image */
+    border: 1px solid #000; /* Light border around the image */
+}
+
+/* Publication Item Hover Effect */
+.publication-item:hover {
+    background-color: #f1f1f1; /* Subtle background color change on hover */
+    border-radius: 8px; /* Maintain rounded corners on hover */
+    transform: translateY(-5px); /* Slight lift effect on hover */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1); /* Enhanced shadow effect on hover */
+}
+
+/* Research Page Styles */
+.research-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1500px;
+    margin: auto;
+    padding: 20px;
+}
+
+.research-content {
+    flex: 1;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.research-content h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.research-content p {
+    font-size: 18px;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.research-video {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.research-video iframe {
+    width: 100%;
+    max-width: 560px;
+    height: 315px; /* Explicitly set the height */
+    border-radius: 8px;
+    border: 1px solid #ddd;
+}
+
+/* Optional: Add a slight hover effect for interactivity */
+.research-content:hover,
+.research-video:hover iframe {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    transition: box-shadow 0.3s ease;
+}
+
+
+/* Contact Container */
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Contact Information */
+.contact-info {
+    flex: 1;
+    padding-right: 40px;
+}
+
+.contact-info h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-info p {
+    font-size: 16px;
+    margin: 10px 0;
+    color: #666;
+    text-align: left;
+}
+
+.contact-info strong {
+    font-weight: bold;
+    color: #333;
+    text-align: left;
+}
+
+/* Vertical Line */
+.vertical-line {
+    width: 1px;
+    background-color: #ddd;
+    height: auto;
+    margin: 0 20px;
+}
+
+/* Contact Form */
+.contact-form {
+    flex: 1;
+    padding-left: 40px;
+}
+
+.contact-form h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.contact-form form {
+    display: flex;
+    flex-direction: column;
+}
+
+.contact-form .form-group {
+    margin-bottom: 20px;
+}
+
+.contact-form label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    background-color: #fff;
+    border-color: #aaa;
+    outline: none;
+}
+
+.contact-form button {
+    padding: 10px 20px;
+    font-size: 18px;
+    color: #fff;
+    background-color: #007BFF;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.contact-form button:hover {
+    background-color: #0056b3;
+}
+
+/* Map Container */
+.map-container {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.map-container h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.map-container iframe {
+    width: 100%;
+    border-radius: 10px;
+    border: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-container {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .vertical-line {
+        display: none;
+    }
+
+    .contact-info,
+    .contact-form {
+        padding: 0;
+    }
+
+    .contact-form {
+        margin-top: 20px;
+    }
+
+    .map-container iframe {
+        height: 300px;
+    }
+}
+
+/* License Container */
+.license-container {
+    max-width: 1200px;
+    margin: 100px auto 50px; /* Increased margin-top for more space above the container */
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Main Title */
+.license-container h1 {
+    font-size: 36px;
+    margin-bottom: 20px;
+    color: #333;
+    text-align: center;
+}
+
+/* Section Titles */
+.license-container h2 {
+    font-size: 28px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+    color: #333;
+    border-bottom: 2px solid #333;
+    padding-bottom: 5px;
+}
+
+/* Paragraphs */
+.license-container p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+    margin: 10px 0;
+    text-align: left;
+}
+
+/* Links */
+.license-container a {
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.license-container a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .license-container {
+        padding: 15px;
+    }
+
+    .license-container h1 {
+        font-size: 28px;
+    }
+
+    .license-container h2 {
+        font-size: 22px;
+    }
+
+    .license-container p {
+        font-size: 14px;
+    }
+}
+

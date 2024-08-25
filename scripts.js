@@ -66,4 +66,18 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // Start the text cycling effect
     cycleTexts();
+
+    // Smooth scrolling for research video when clicking text links
+    const videoSection = document.querySelector('.research-video');
+
+    if (videoSection) {
+        const videoLink = document.querySelector('.scroll-to-video'); // Link that triggers the scroll
+        
+        if (videoLink) {
+            videoLink.addEventListener('click', (event) => {
+                event.preventDefault(); // Prevent default anchor behavior
+                videoSection.scrollIntoView({ behavior: 'smooth' });
+            });
+        }
+    }
 });
