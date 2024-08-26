@@ -25,13 +25,28 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin: 0 auto;
 }
 
+/* Style for the logo container */
+.logo {
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally if needed */
+}
+
+/* Style for the logo link */
 .logo a {
-    font-size: 24px;
-    font-weight: bold;
-    text-decoration: none;
-    color: #333;
+    display: flex; /* Ensure the link wraps the image properly */
+    align-items: center; /* Center vertically within the container */
+    text-decoration: none; /* Remove underline from link */
+    color: inherit; /* Inherit color from parent (not necessary for images) */
+}
+
+/* Style for the logo image */
+.logo img {
+    width: 100px; /* Set the width of the image */
+    height: auto; /* Set the height of the image */
 }
 
 .nav-menu {
@@ -117,8 +132,8 @@ main {
     max-width: 1200px;
     width: 100%;
     margin: auto;
-    padding: 20px;
-    gap: 10px;
+    padding: 10px;
+    gap: 5px;
     justify-content: space-between;
 }
 
@@ -129,50 +144,48 @@ main {
     justify-content: center;
     flex-direction: column;
     text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     background-color: #fff;
     border-bottom: 1px solid #ddd;
-    padding: 20px;
+    padding: 10px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .blog-header h1 {
-    font-size: 36px;
+    font-size: 24px;
     color: #333;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
 }
 
 .blog-header p {
-    font-size: 18px;
+    font-size: 16px;
     color: #666;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
 /* Blog Posts */
 .blog-posts {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
+    display: grid;
+    direction: ltr; /* Left to right layout */
+    grid-template-columns: repeat(4, 1fr); /* 4 columns per row */
+    gap: 10px; /* Adjust gap between boxes as needed */
+    /* Optional: Center the grid if it doesn’t occupy the entire container */
+    justify-content: center; 
 }
 
-.column {
-    flex: 1 1 calc(25% - 10px); /* 25% width minus the gap */
-    box-sizing: border-box;
-}
-
-/* Blog Post Styling */
 .blog-post {
-    background-color: #fff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    margin-bottom: 20px;
+    /* Style individual blog posts */
+    background-color: #fff; /* Background color for blog posts */
+    padding: 15px; /* Padding inside each blog post */
+    border: 1px solid #ddd; /* Border around each blog post */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional: Shadow effect */
+    /* Adjust other styles as needed */
 }
 
 .blog-post h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 16px;
+    margin-bottom: 5px;
 }
 
 .blog-post h2 a {
@@ -185,14 +198,15 @@ main {
 }
 
 .post-image img {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
+    max-width: 500px; /* Set a maximum width for the image */
+    max-height: 500px; /* Set a maximum height for the image */
+    object-fit: contain; /* Fit the image within the container without cropping */
+    border-radius: 8px; /* Optional: Rounded corners */
 }
 
 .post-content h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: 16px;
+    margin-bottom: 5px;
 }
 
 .post-content h2 a {
@@ -205,27 +219,15 @@ main {
 }
 
 .post-date {
-    font-size: 14px;
+    font-size: 12px;
     color: #999;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     text-align: center;
 }
 
 .post-summary {
-    font-size: 16px;
+    font-size: 14px;
     color: #666;
-}
-
-.read-more {
-    display: inline-block;
-    margin-top: 10px;
-    text-decoration: none;
-    color: #007bff;
-    font-weight: bold;
-}
-
-.read-more:hover {
-    text-decoration: underline;
 }
 
 /* Blog Post Page Styling */
@@ -239,34 +241,43 @@ main {
 }
 
 .blog-post {
-    margin-bottom: 100px;
+    margin: 0 auto 100px;
 }
 
+/* Image styling */
 .post-image img {
     width: 100%;
-    height: 100%;
+    height: auto; /* Adjust height to maintain aspect ratio */
     border-radius: 8px;
+}
+
+/* Heading styling */
+.post-content h1,
+.post-content h2 {
+    margin-bottom: 10px;
+    text-align: left; /* Default alignment */
 }
 
 .post-content h1 {
     font-size: 36px;
-    margin-bottom: 10px;
-    text-align: left;
 }
 
 .post-content h2 {
     font-size: 24px;
-    margin-bottom: 10px;
-    text-align: center;
+    text-align: center; /* Center alignment for h2 */
 }
 
+/* Paragraph styling */
 .post-content p {
     font-size: 16px;
     color: #666;
-    margin-bottom: 10px;
+    margin-bottom: 20px; /* Increased margin for better spacing */
     text-align: left;
+    line-height: 1.6; /* Improved line height for readability */
+    overflow-wrap: break-word; /* Ensures long words break to fit */
 }
 
+/* Date styling */
 .post-date {
     font-size: 14px;
     color: #999;
@@ -274,28 +285,30 @@ main {
     text-align: center;
 }
 
+/* List styling */
 .post-body ul {
     list-style-type: disc;
     padding-left: 20px;
-    margin-bottom: 20px;
-    text-align: left;
-}
-
-.post-body ul {
-    padding-left: 20px; /* Adds padding to the left of the list for indentation */
     margin: 10px 0;
-    text-align: left; /* Aligns the list items to the left */
+    list-style-position: inside;
+    text-align: left;
+    text-justify: auto;
 }
 
 .post-body li {
-    margin-bottom: 10px; /* Adds space between list items */
+    margin-bottom: 10px;
+    text-align: left;
+    padding: 10px;
+    list-style-position: inside; /* Move the list item marker inside the padding */
 }
+
 
 /* About Section */
 .about-section {
     display: flex;
-    justify-content: center;
-    padding: 40px 20px;
+    justify-content: center; /* Center the content horizontally */
+    align-items: center; /* Center the content vertically */
+    padding: 40px 40px;
     width: 100%;
 }
 
@@ -416,6 +429,43 @@ footer {
 }
 
 /* Media Queries */
+
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .nav-menu {
+        margin-top: 10px;
+    }
+
+    .about-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .about-info, .portfolio-info {
+        margin: 0;
+        width: 100%;
+    }
+
+    .portfolio-picture {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-menu a {
+        margin: 0 5px;
+        font-size: 14px;
+    }
+
+    .about-info p, .about-info h1 {
+        font-size: 16px;
+    }
+}
+
 @media (max-width: 768px) {
     .blog-container {
         flex-direction: column;
@@ -698,6 +748,28 @@ footer {
     background-color: #0056b3;
 }
 
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    transition: background-color 0.3s ease;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    background-color: #fff;
+    border-color: #aaa;
+    outline: none;
+}
+
+.error {
+    color: red;
+    margin-top: 5px;
+    font-size: 14px;
+}
+
 /* Map Container */
 .map-container {
     max-width: 1200px;
@@ -811,3 +883,225 @@ footer {
     }
 }
 
+/* Mobile Phone View */
+@media (max-width: 480px) {
+    .post-content h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .post-body ul {
+        padding-left: 10px;
+        margin: 5px 0;
+        text-align: left;
+    }
+
+    .about-info {
+        max-width: 100%;
+        margin-left: 0;
+    }
+
+    .portfolio-picture {
+        max-width: 200px;
+    }
+
+    .link-item {
+        margin-bottom: 10px;
+    }
+
+    .link-icon {
+        width: 30px;
+        margin-bottom: 5px;
+    }
+
+    .link-text {
+        font-size: 12px;
+    }
+
+    .about-links a {
+        margin-right: 5px;
+    }
+
+    footer {
+        padding: 10px;
+    }
+
+    .footer-content {
+        max-width: 800px;
+    }
+
+    .footer-links a {
+        margin: 0 5px;
+    }
+
+    .welcome-section h1 {
+        font-size: 20px;
+    }
+
+    .welcome-section p {
+        font-size: 14px;
+    }
+
+    .blog-header h1 {
+        font-size: 20px;
+    }
+
+    .blog-header p {
+        font-size: 14px;
+    }
+
+    .post-content h2 {
+        font-size: 18px;
+    }
+
+    .post-date {
+        font-size: 10px;
+    }
+
+    .post-summary {
+        font-size: 12px;
+    }
+
+    .sidebar-section h3 {
+        font-size: 16px;
+    }
+
+    .sidebar-section ul li a {
+        font-size: 12px;
+    }
+
+    .footer-links a {
+        font-size: 10px;
+    }
+
+    .publications-container {
+        max-width: 100%;
+        padding: 10px;
+    }
+
+    .year-section {
+        margin-bottom: 20px;
+        padding: 10px;
+    }
+
+    .year-heading {
+        font-size: 24px;
+        margin-bottom: 5px;
+        padding-bottom: 3px;
+    }
+
+    .publication-item {
+        gap: 10px;
+        padding: 10px 0;
+    }
+
+    .publication-name {
+        font-size: 14px;
+    }
+
+    .publication-name h3 {
+        font-size: 14px;
+    }
+
+    .publication-image img {
+        max-width: 100px;
+    }
+
+    .research-container {
+        flex-direction: column;
+        padding: 10px;
+    }
+
+    .research-content {
+        padding: 10px;
+    }
+
+    .research-content h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .research-content p {
+        font-size: 14px;
+        margin-bottom: 10px;
+    }
+
+    .research-video iframe {
+        max-width: 100%;
+        height: 200px;
+    }
+
+    .contact-container {
+        flex-direction: column;
+        margin: 20px auto;
+        padding: 10px;
+    }
+
+    .contact-info h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .contact-info p {
+        font-size: 14px;
+        margin: 5px 0;
+    }
+
+    .contact-info strong {
+        font-size: 14px;
+    }
+
+    .contact-form h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .contact-form label {
+        font-size: 14px;
+        margin-bottom: 3px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 14px;
+    }
+
+    .contact-form button {
+        font-size: 16px;
+    }
+
+    .map-container {
+        margin: 20px auto;
+        padding: 10px;
+    }
+
+    .map-container h2 {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+
+    .map-container iframe {
+        height: 200px;
+    }
+
+    .license-container {
+        margin: 50px auto 20px;
+        padding: 10px;
+    }
+
+    .license-container h1 {
+        font-size: 24px;
+        margin-bottom: 10px;
+    }
+
+    .license-container h2 {
+        font-size: 20px;
+        margin-top: 10px;
+        margin-bottom: 5px;
+    }
+
+    .license-container p {
+        font-size: 12px;
+        margin: 5px 0;
+    }
+}

@@ -81,3 +81,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 });
+
+function validateForm() {
+    // Get the values from the form fields
+    var name = document.getElementById("name").value.trim();
+    var email = document.getElementById("email").value.trim();
+    var message = document.getElementById("message").value.trim();
+
+    // Check if any of the fields are empty
+    if (name === "" || email === "" || message === "") {
+        alert("Please fill in all the required fields.");
+        return false; // Prevent form submission
+    }
+
+    // All fields are filled, allow form submission
+    return true;
+}
+
+document.getElementById("myForm").addEventListener("submit", validateForm);
