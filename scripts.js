@@ -1,7 +1,4 @@
-// scripts.js
-
 document.addEventListener('DOMContentLoaded', () => {
-    // Array of texts to display in the typewriter effect
     const texts = [
         "where we explore the evolution and pharmacology of G Protein-Coupled Receptors (GPCRs).",
         "where we investigate the lineage-specific expansion of genes.",
@@ -10,92 +7,93 @@ document.addEventListener('DOMContentLoaded', () => {
         "where we learn new R scripts and explore innovative ways of visualization."
     ];
 
-    let index = 0; // Index to track the current text
-    const animatedTextElement = document.getElementById('animated-text'); // Target element for animation
+    let index = 0;
+    const animatedTextElement = document.getElementById('animated-text');
 
-    // Function to handle typing effect
     function typeWriter(text, callback) {
-        let i = 0; // Start position for typing
-        const speed = 50; // Speed of typing
+        let i = 0;
+        const speed = 50;
 
-        // Function to type the text character by character
         function typing() {
             if (i < text.length) {
-                animatedTextElement.textContent += text.charAt(i); // Append character
+                animatedTextElement.textContent += text.charAt(i);
                 i++;
-                setTimeout(typing, speed); // Call typing function recursively
+                setTimeout(typing, speed);
             } else if (callback) {
-                setTimeout(callback, 1000); // Wait 1 second before starting deletion
+                setTimeout(callback, 1000);
             }
         }
 
-        typing(); // Start typing
+        typing();
     }
 
-    // Function to handle deleting effect
     function deleteText(callback) {
-        let i = animatedTextElement.textContent.length; // Start position for deleting
-        const speed = 30; // Speed of deleting
+        let i = animatedTextElement.textContent.length;
+        const speed = 30;
 
-        // Function to delete the text character by character
         function deleting() {
             if (i > 0) {
-                animatedTextElement.textContent = animatedTextElement.textContent.substring(0, i - 1); // Remove character
+                animatedTextElement.textContent = animatedTextElement.textContent.substring(0, i - 1);
                 i--;
-                setTimeout(deleting, speed); // Call deleting function recursively
+                setTimeout(deleting, speed);
             } else if (callback) {
-                setTimeout(callback, 500); // Wait 0.5 seconds before typing next text
+                setTimeout(callback, 500);
             }
         }
 
-        deleting(); // Start deleting
+        deleting();
     }
 
-    // Function to cycle through texts with typing and deleting effects
     function cycleTexts() {
         typeWriter(texts[index], () => {
             deleteText(() => {
-                index = (index + 1) % texts.length; // Move to the next text in the array
-                cycleTexts(); // Repeat the process
+                index = (index + 1) % texts.length;
+                cycleTexts();
             });
         });
     }
 
-    // Add typewriter class for animation styling
-    animatedTextElement.classList.add('typewriter');
-    
-    // Start the text cycling effect
     cycleTexts();
 
-    // Smooth scrolling for research video when clicking text links
+    // Smooth scrolling for research video
     const videoSection = document.querySelector('.research-video');
-
     if (videoSection) {
-        const videoLink = document.querySelector('.scroll-to-video'); // Link that triggers the scroll
-        
+        const videoLink = document.querySelector('.scroll-to-video');
         if (videoLink) {
             videoLink.addEventListener('click', (event) => {
-                event.preventDefault(); // Prevent default anchor behavior
+                event.preventDefault();
                 videoSection.scrollIntoView({ behavior: 'smooth' });
             });
         }
     }
-});
 
-function validateForm() {
-    // Get the values from the form fields
-    var name = document.getElementById("name").value.trim();
-    var email = document.getElementById("email").value.trim();
-    var message = document.getElementById("message").value.trim();
+    // Form validation
+    function validateForm(event) {
+        const name = document.getElementById("name").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const message = document.getElementById("message").value.trim();
 
-    // Check if any of the fields are empty
-    if (name === "" || email === "" || message === "") {
-        alert("Please fill in all the required fields.");
-        return false; // Prevent form submission
+        if (name === "" || email === "" || message === "") {
+            alert("Please fill in all the required fields.");
+            event.preventDefault(); // Prevent form submission if validation fails
+            return false;
+        }
+
+        return true;
     }
 
-    // All fields are filled, allow form submission
-    return true;
-}
+    const form = document.getElementById("myForm");
+    if (form) {
+        form.addEventListener("submit", validateForm);
+    }
 
-document.getElementById("myForm").addEventListener("submit", validateForm);
+    // Hamburger menu toggle
+    const hamburgerMenu = document.querySelector('.hamburger-menu');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (hamburgerMenu && navMenu) {
+        hamburgerMenu.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+    }
+});
