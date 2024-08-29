@@ -5,6 +5,7 @@
     box-sizing: border-box;
 }
 
+@media (max-width: 2400px){
 /* Body Styling */
 body {
     font-family: 'Roboto', Arial, sans-serif;
@@ -740,11 +741,12 @@ footer {
 .license-container a:hover {
     text-decoration: underline;
 }
+}
 
 /* Media Queries */
 
 /* Tablet View */
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
     /* General Styles */
     body, html {
         margin: 0;
@@ -880,7 +882,7 @@ footer {
 }
 
 /* Mobile Phone View */
-@media (max-width: 480px) {
+@media (max-width: 640px) {
     /* General Styles */
     body, html {
         margin: 0;
