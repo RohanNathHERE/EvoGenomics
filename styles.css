@@ -116,7 +116,7 @@ main {
 /* Welcome Section */
 .welcome-section h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 36px;
+    font-size: 42px;
     margin-bottom: 10px;
 }
 
@@ -745,26 +745,86 @@ footer {
 
 /* Tablet View */
 @media (max-width: 768px) {
-    .nav-container,
+    /* General Styles */
+    body, html {
+        margin: 0;
+        padding: 0px;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+
+    *, *::before, *::after {
+        box-sizing: inherit; /* Inherit box-sizing for all elements */
+        max-width: 100%; /* Prevent elements from exceeding viewport width */
+    }
+
+    .main-content{
+        flex: 1;
+    }
+    
+    .nav-container{
+        position: relative;
+        display: flex;
+        justify-content: center;
+        padding: 0 10px;
+        height: 50px; /* Increase the height of the nav container */
+    }
+
+    .social-media {
+        position: absolute;
+        top: 10px;
+        right: 0px;
+    }
+
+    .logo{
+        position: absolute;
+        left: 0; /* Position to the left */
+        top: 50%; /* Center vertically within .nav-container */
+        transform: translateY(-50%); /* Adjust vertical centering */
+        display: flex;
+        align-items: center;
+        height: 100%;
+    }
+
     .contact-container,
     .license-container,
-    .research-container,
     .blog-container {
         flex-direction: column;
         padding: 20px;
     }
 
-    .nav-container {
-        align-items: flex-start;
+    .research-container{
+        flex-direction: column;
+        width: 100%;
+        position: absolute;
+        top: 100px;
+        margin-bottom: 50px;
     }
 
-    .nav-menu {
-        margin-top: 10px;
+    .research-video{
+        margin-bottom: 100px;
     }
 
     .about-section {
+        margin-top: auto;
+        max-width: 100%;
+        margin-bottom: 100px;
+    }
+
+    .about-box{
         flex-direction: column;
         align-items: center;
+        width: 100%;
+        margin-bottom: 100px;
+    }
+
+    .blog-posts{
+        display: grid;
+        direction: ltr;
+        grid-template-columns: repeat(2, 1fr);
+        justify-content: center;
     }
 
     .about-info,
@@ -786,8 +846,19 @@ footer {
         display: none;
     }
 
-    .contact-form {
-        margin-top: 20px;
+    .contact-form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .contact-container {
+        margin-top: auto; /* Pushes the container to the bottom of its flex parent */
+        max-height: 700px; /* Limits the height of the container */
+        margin-bottom: 200px; /* Space between the container and the footer */
+        display: flex;
+        flex-direction: column; /* Ensure content aligns correctly */
     }
 
     .map-container iframe {
@@ -813,15 +884,20 @@ footer {
     /* General Styles */
     body, html {
         margin: 0;
-        padding: 0;
+        padding: 0px;
         width: 100%;
-        overflow-x: hidden;
-        box-sizing: border-box;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
     }
 
     *, *::before, *::after {
         box-sizing: inherit; /* Inherit box-sizing for all elements */
         max-width: 100%; /* Prevent elements from exceeding viewport width */
+    }
+
+    .main-content{
+        flex: 1;
     }
 
     .nav-container {
@@ -837,9 +913,12 @@ footer {
     .social-media {
         position: absolute;
         top: 10px; /* Adjust positioning as needed */
-        left: 0px; /* Adjust positioning as needed */
+        left: -30px; /* Adjust positioning as needed */
         display: flex;
         align-items: center;
+        gap: 0px;
+        padding: auto;
+        margin: auto;
     }
     
     .social-icon img {
@@ -867,7 +946,7 @@ footer {
     .hamburger-menu {
         position: absolute;
         top: 10px; /* Adjust positioning as needed */
-        right: 10px; /* Adjust positioning as needed */
+        right: 0px; /* Adjust positioning as needed */
         display: block;
         cursor: pointer;
         z-index: 1; /* Ensure it appears above other elements */
@@ -916,14 +995,12 @@ footer {
         opacity: 1;
     }
 
-    h1, h2, h3, p, label, a, .publication-name, .post-date, .contact-form input, 
+    h1, h2, h3, p, label, a, .publication-name, .contact-form input, 
     .contact-form textarea, .contact-form button {
         margin-bottom: 10px;
         font-size: 14px;
     }
     
-    .about-box, 
-    .about-section,
     .portfolio-info {
         flex-direction: column;
         align-items: center;
@@ -935,12 +1012,74 @@ footer {
         height: 50%;
     }
 
-    .welcome-section h1,
-    .blog-header h1,
-    .research-content h1,
+    .about-section{
+        margin-top: auto;
+        margin-bottom: 100px;
+    }
+
+    .about-box{
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        margin-bottom: 100px;
+    }
+
+    .welcome-section h1{
+        font-size: 9vw;
+    }
+
+    .blog-header h1{
+        font-size: 8vw;
+    }
+
+    .blog-header p{
+        font-size: 4vw;
+    }
+
+    .blog-posts{
+        display: grid;
+        direction: ltr;
+        grid-template-columns: repeat(1, 1fr);
+        justify-content: center;
+    }
+
+    .blog-post {
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #ddd;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    
+    .post-image img {
+        max-width: 250px;
+        max-height: 250px;
+        object-fit: contain;
+        border-radius: 8px;
+    }
+
+    .post-content h2 {
+        font-size: 4vw;
+        text-align: left;
+    }
+
     .license-container h1,
     .year-heading {
         font-size: 20px;
+    }
+
+    .research-container {
+        width: 100%;
+        position: absolute;
+        top: 60px;
+        margin-bottom: 50px;
+    }
+
+    .research-content h1{
+        font-size: 6vw;
+    }
+
+    .research-content p{
+        font-size: 4vw;
     }
 
     .link-icon {
@@ -953,7 +1092,10 @@ footer {
     }
 
     .post-date {
-        font-size: 10px;
+        font-size: 4vw;
+        color: #999;
+        margin-bottom: 0px;
+        text-align: center;
     }
 
     .post-body ul {
@@ -962,18 +1104,20 @@ footer {
     }
 
     .about-info, .publications-container, .year-section, .license-container {
-        margin: 10px 0;
         padding: 10px;
     }
 
     .portfolio-picture,
-    .publication-image img,
     .research-video iframe,
     .map-container iframe {
         display: block;
         margin: 0 auto;
         width: 100%; /* Ensures images, videos, and iframes fit within container */
         height: auto; /* Maintain aspect ratio */
+    }
+
+    .publication-image{
+        display: none;
     }
 
     .publication-item {
@@ -992,6 +1136,10 @@ footer {
 
     .footer-links a {
         margin: 0 5px;
+    }
+
+    .contact-container {
+        display: block;
     }
 
     .contact-form button {
