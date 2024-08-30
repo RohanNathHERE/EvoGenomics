@@ -9,6 +9,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     let index = 0;
     const animatedTextElement = document.getElementById('animated-text');
+    console.log('Animated text element:', animatedTextElement);
 
     function typeWriter(text, callback) {
         let i = 0;
@@ -90,6 +91,9 @@ document.addEventListener('DOMContentLoaded', () => {
     // Hamburger menu toggle
     const hamburgerMenu = document.querySelector('.hamburger-menu');
     const navMenu = document.querySelector('.nav-menu');
+
+    console.log('Hamburger menu:', hamburgerMenu);
+    console.log('Nav menu:', navMenu);
 
     if (hamburgerMenu && navMenu) {
         hamburgerMenu.addEventListener('click', () => {

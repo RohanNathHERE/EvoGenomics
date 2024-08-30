@@ -802,10 +802,12 @@ footer {
         width: 100%;
         position: absolute;
         top: 100px;
+        margin-top: 50px;
         margin-bottom: 50px;
     }
 
     .research-video{
+        margin-top: 50px;
         margin-bottom: 100px;
     }
 
@@ -945,23 +947,32 @@ footer {
     }
     
 /* Hamburger Menu on the Right */
-    .hamburger-menu {
-        position: absolute;
-        top: 10px; /* Adjust positioning as needed */
-        right: 0px; /* Adjust positioning as needed */
-        display: block;
-        cursor: pointer;
-        z-index: 1; /* Ensure it appears above other elements */
-    }
+.hamburger-menu {
+    position: absolute;
+    top: 10px; /* Adjust positioning as needed */
+    right: 0px; /* Adjust positioning as needed */
+    display: block;
+    cursor: pointer;
+    z-index: 1; /* Ensure it appears above other elements */
+}
 
-    .hamburger-menu span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        margin: 5px 0;
-        background-color: #333;
-        transition: background-color 0.3s; /* Smooth color transition for the hamburger lines */
-    }
+.hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    margin: 5px 0;
+    background-color: #333;
+    transition: transform 0.3s, background-color 0.3s; /* Smooth transition for transform and color */
+}
+
+/* Hover effect for moving top and bottom lines */
+.hamburger-menu:hover span:nth-child(1) {
+    transform: translateY(-6px); /* Move the top line down */
+}
+
+.hamburger-menu:hover span:nth-child(3) {
+    transform: translateY(6px); /* Move the bottom line up */
+}
 
 /* Navigation Menu */
     .nav-menu {
@@ -980,21 +991,43 @@ footer {
     }
 
     .nav-menu {
-        display: none;
-    }
-
-    .nav-menu.active {
-        display: flex;
+        display: flex; /* Default state for visibility control */
         flex-direction: column;
-        position: absolute;
-        top: 50px;
+        position: fixed;
+        top: 0;
         right: 0;
         background-color: #fff;
         width: 200px;
+        max-height: 80vh;
+        height: auto; /* Full viewport height */
         padding: 10px;
         box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        transform: translate(0);
+        transform: translateX(100%); /* Start off-screen */
+        opacity: 0;
+        overflow-y: auto;
+        transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition */
+        box-sizing: border-box;
+    }
+
+    .nav-menu.active {
+        transform: translateX(0px) translateY(70px);
         opacity: 1;
+    }
+
+    .nav-menu a {
+        display: block;
+        text-align: center;
+        padding: 10px;
+        margin: 5px 0;
+        background-color: #f5f5f5;
+        border-radius: 5px;
+        text-decoration: none;
+        color: #333;
+        transition: background-color 0.3s;
+    }
+
+    .nav-menu a:hover {
+        background-color: #ddd;
     }
 
     h1, h2, h3, p, label, a, .publication-name, .contact-form input, 
@@ -1140,12 +1173,125 @@ footer {
         margin: 0 5px;
     }
 
-    .contact-container {
+    .contact-form{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .contact-container{
+        max-height: 700px;
+        margin-bottom: 200px;
+        display: flex;
+        background-color: #fff;
+        border-radius: 10px;
+        flex-direction: column;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        gap: 20px;
+        align-items: center;
+    }
+
+    .contact-info{
+        width: 100%;
+        max-width: 400px;
+        padding: 0 20px;
+    }
+
+    .contact-info h2 {
+        font-size: 16px;
+        margin-bottom: 10px;
+        color: #333;
+        text-align: center;
+    }
+
+    .contact-info p {
+        font-size: 12px;
+        margin: 10px 0;
+        color: #666;
+        text-align: left;
+    }
+
+    .contact-form{
+        width: 100%;
+        max-width: 400px;
+        padding: 0 20px;
+    }
+
+    .contact-form h2 {
+        font-size: 16px;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .contact-form .form-group {
+        margin-bottom: 20px;
+    }
+
+    .contact-form label {
+        font-size: 12px;
+        margin-bottom: 5px;
+        color:#555;
         display: block;
+        text-align: left;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+        width: 90%;
+        padding: 8px;
+        max-width: 200px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 12px;
+        background-color: #f9f9f9;
+        transition: background-color 0.3s ease;
+        align-items: left;  
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+    background-color: #fff;
+    border-color: #aaa;
+    outline: none;
     }
 
     .contact-form button {
-        font-size: 16px;
+        padding: 8px 16px;
+        font-size: 12px;
+        color: #fff;
+        background-color: #007BFF;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        margin-top: -20px;
+    }
+
+    .contact-form button:hover {
+        background-color: #0056b3;
+    }
+
+    .form-group input, .form-group textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        font-size: 12px;
+        background-color: #f9f9f9;
+        transition: background-color 0.3s ease;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+        background-color: #fff;
+        border-color: #aaa;
+        outline: none;
+    }
+    
+    .error {
+        color: red;
+        margin-top: 5px;
+        font-size: 12px;
     }
 
     .license-container {
