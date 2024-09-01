@@ -300,6 +300,30 @@ main {
     list-style-position: inside;
 }
 
+.back-button {
+    background-color: transparent;
+    color: black;
+    border: none;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 16px;
+    transition: color 0.3s ease;
+}
+
+.back-button svg {
+    margin-right: 8px;
+    transition: transform 0.3s ease;
+}
+
+.back-button:hover {
+    color: #333;
+}
+
+.back-button:hover svg {
+    transform: translateX(-3px);
+}
+
 /* About Section */
 .about-section {
     display: flex;
