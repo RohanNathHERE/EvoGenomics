@@ -866,6 +866,22 @@ footer {
         display: none;
     }
 
+    .back-button {
+        background-color: transparent;
+        color: #000;
+        border: none;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        position: absolute;
+        left: 10px;
+    }
+
+    .back-button svg {
+        margin-right: 8px;
+        transition: transform 0.3s ease;
+    }
+
     .contact-form{
         display: flex;
         flex-direction: column;
@@ -1097,6 +1113,17 @@ footer {
         text-align: left;
     }
 
+    .back-button {
+        background-color: transparent;
+        color: #000;
+        border: none;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        position: absolute;
+        left: 10px;
+    }
+    
     .license-container h1,
     .year-heading {
         font-size: 20px;
