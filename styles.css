@@ -1073,6 +1073,7 @@ footer {
         align-items: center;
         width: 100%;
         margin-bottom: 100px;
+        margin-top: 1px;
     }
 
     .welcome-section h1{
@@ -1134,6 +1135,7 @@ footer {
         position: absolute;
         top: 60px;
         margin-bottom: 50px;
+        z-index: 1;
     }
 
     .research-content h1{
